@@ -5,7 +5,7 @@ edition = "2021"
 authors = ["Georgios Chatoutsidis"]
 description = "Grid plane for the bevy game engine"
 categories = ["game-development", "gui", "graphics"]
-keywords = ["grid_plane", "bevy", "mesh", "3d", "gamedev", "graphics"]
+keywords = ["grid_plane", "bevy", "mesh", "gamedev", "graphics"]
 repository = "https://github.com/George35mk/grid_plane"
 readme = "README.md"
 license = "MIT"
@@ -13,6 +13,6 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-bevy = { version = "0.10.0",  default-features = false, features = [
+bevy = { version = "0.10",  default-features = false, features = [
     "bevy_render", "bevy_asset", "bevy_pbr", "bevy_core_pipeline", "bevy_winit"
 ]}
