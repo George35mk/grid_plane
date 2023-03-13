@@ -35,7 +35,7 @@ fn main() {
 ## Usage with custom options
 
 ```rust
-use bevy::{prelude::*, window::PresentMode};
+use bevy::prelude::*;
 use grid_plane::{GridPlanePlugin, GridAxis};
 
 fn main() {
