@@ -64,7 +64,7 @@ pub fn camera_controls(
     left = left.normalize();
 
 
-    let speed = 3.0;
+    let speed = 5.0;
     let rotate_speed = 0.3;
 
     if keyboard.pressed(KeyCode::W) {
