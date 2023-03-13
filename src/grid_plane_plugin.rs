@@ -187,6 +187,7 @@ fn create_grid_mesh(
     mesh
 }
 
+/// Computes the horizontal grid line start and end vectors.
 fn compute_y(y: i32, spacing: f32, size: i32, axis: GridAxis) -> (Vec3, Vec3) {
 
     let y_pos: f32;
@@ -221,6 +222,8 @@ fn compute_y(y: i32, spacing: f32, size: i32, axis: GridAxis) -> (Vec3, Vec3) {
 
 }
 
+
+/// Computes the vertical grid line start and end vectors.
 fn compute_x(x: i32, spacing: f32, size: i32, axis: GridAxis) -> (Vec3, Vec3) {
 
     let x_pos: f32;
