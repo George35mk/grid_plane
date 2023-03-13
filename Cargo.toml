@@ -2,6 +2,13 @@
 name = "grid_plane"
 version = "0.1.0"
 edition = "2021"
+authors = ["Georgios Chatoutsidis"]
+description = "Grid plane for the bevy game engine"
+categories = ["game-development", "gui", "graphics"]
+keywords = ["grid plane", "bevy", "mesh", "3d", "gamedev", "graphics"]
+repository = "https://github.com/George35mk/grid_plane"
+readme = "README.md"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
