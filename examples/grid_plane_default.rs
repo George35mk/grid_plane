@@ -1,24 +1,10 @@
-use bevy::{prelude::*, window::PresentMode};
+use bevy::prelude::*;
 use grid_plane::GridPlanePlugin;
 
 fn main() {
     App::new()
     .insert_resource(ClearColor(Color::BLACK))
-    .add_plugins(DefaultPlugins
-        .set(WindowPlugin {
-            primary_window: Some(Window {
-                title: "Bevy grid plane example".into(),
-                resolution: (800., 600.).into(),
-                present_mode: PresentMode::AutoNoVsync,
-                ..default()
-            }),
-            ..default()
-            
-        })
-        .set(ImagePlugin::default_nearest())
-    )
-
-    // Use this code to create a grid plane with default options.
+    .add_plugins(DefaultPlugins)
     .add_plugin(GridPlanePlugin::default())
     .add_startup_system(setup)
     .add_system(camera_controls)
