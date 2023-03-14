@@ -14,5 +14,8 @@ license = "MIT"
 
 [dependencies]
 bevy = { version = "0.10",  default-features = false, features = [
-    "bevy_render", "bevy_asset", "bevy_pbr", "bevy_core_pipeline", "bevy_winit"
+    "bevy_render", "bevy_asset", "bevy_pbr",
 ]}
+
+[dev-dependencies]
+bevy = "0.10"

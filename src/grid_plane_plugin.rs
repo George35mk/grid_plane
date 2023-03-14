@@ -94,8 +94,8 @@ fn setup(
         state.color,
         state.color10,
     );
+    
     let line_material = materials.add(StandardMaterial {
-            // base_color: Color::ANTIQUE_WHITE,
             unlit: true,
             alpha_mode: AlphaMode::Blend,
         ..default()
