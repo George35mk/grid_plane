@@ -7,14 +7,10 @@ Grid plane is a Rust plugin for the Bevy game engine that allows you to add a gr
 
 ## Features
 - Add grid plane on the scene.
-- Add xy grid plane
-- Add yz grid plane
-- Add zx grid plane
-- change x axis line color 
-- change y axis line color 
-- change z axis line color
-- change default line color
-- change every 10 units line color
+- Set grid colors.
+- Set grid size and spacing.
+- Set grid axes such as `xy`, `yz`, and `zx`.
+
 
 ## Usage
 To use the bevy_grid plugin, simply add it to your Bevy app's plugin list:

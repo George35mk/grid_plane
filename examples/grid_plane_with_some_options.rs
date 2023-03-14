@@ -1,26 +1,12 @@
-use bevy::{prelude::*, window::PresentMode};
+use bevy::prelude::*;
 use grid_plane::{GridPlanePlugin, GridAxis};
 
 fn main() {
     App::new()
     .insert_resource(ClearColor(Color::BLACK))
-    .add_plugins(DefaultPlugins
-        .set(WindowPlugin {
-            primary_window: Some(Window {
-                title: "Bevy grid plane example".into(),
-                resolution: (800., 600.).into(),
-                present_mode: PresentMode::AutoNoVsync,
-                ..default()
-            }),
-            ..default()
-            
-        })
-        .set(ImagePlugin::default_nearest())
-    )
-
-    // Use this code if you want to change some of the options.
+    .add_plugins(DefaultPlugins)
     .add_plugin(GridPlanePlugin {
-        grid_axis: GridAxis::Zx,
+        grid_axis: GridAxis::Xy,
         ..default()
     })
     .add_startup_system(setup)
@@ -44,7 +30,7 @@ fn setup(
 
     // add the camera
     commands.spawn(Camera3dBundle {
-        transform: Transform::from_xyz(0.0, 8., 12.0).looking_at(Vec3::new(0., 1., 0.), Vec3::Y),
+        transform: Transform::from_xyz(0.0, 0., 150.0).looking_at(Vec3::new(0., 1., 0.), Vec3::Y),
         ..default()
     });
 
