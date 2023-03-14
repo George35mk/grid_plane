@@ -1,6 +1,6 @@
 [package]
 name = "grid_plane"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Georgios Chatoutsidis"]
 description = "Grid plane for the bevy game engine"
