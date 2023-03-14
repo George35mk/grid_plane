@@ -5,8 +5,6 @@ fn main() {
     App::new()
     .insert_resource(ClearColor(Color::BLACK))
     .add_plugins(DefaultPlugins)
-
-    // Use this code if you want to change some of the options.
     .add_plugin(GridPlanePlugin {
         grid_axis: GridAxis::Xy,
         ..default()
