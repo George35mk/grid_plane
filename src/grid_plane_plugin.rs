@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 use bevy::{
     prelude::*, 
     render::{mesh, render_resource::PrimitiveTopology}
