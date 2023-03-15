@@ -10,11 +10,11 @@ fn main() {
         grid_axis: GridAxis::Zx,
         size: 150,
         spacing: 1.0,
-        color: Color::GRAY,
-        color10: Color::CYAN,
         x_axis_color: Color::RED,
         y_axis_color: Color::GREEN,
         z_axis_color: Color::BLUE,
+        minor_line_color: Color::GRAY,
+        major_line_color: Color::CYAN,
     })
     .add_startup_system(setup)
     .add_system(camera_controls)

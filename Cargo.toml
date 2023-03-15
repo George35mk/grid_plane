@@ -1,6 +1,6 @@
 [package]
 name = "grid_plane"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2021"
 authors = ["Georgios Chatoutsidis"]
 description = "Grid plane for the bevy game engine"
@@ -19,3 +19,15 @@ bevy = { version = "0.10",  default-features = false, features = [
 
 [dev-dependencies]
 bevy = "0.10"
+
+[[example]]
+name = "grid_plane_default"
+path = "examples/grid_plane_default.rs"
+
+[[example]]
+name = "grid_plane_with_options"
+path = "examples/grid_plane_with_options.rs"
+
+[[example]]
+name = "grid_plane_with_some_options"
+path = "examples/grid_plane_with_some_options.rs"
