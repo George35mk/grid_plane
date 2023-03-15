@@ -25,11 +25,11 @@ pub struct GridPlanePlugin {
     /// the grid z axis colors
     pub z_axis_color: Color,
 
-    /// the grid default colors
-    pub color: Color,
+    /// the grid minor line color. For example every 1 unit
+    pub minor_line_color: Color,
 
-    // the color every 10 units
-    pub color10: Color,
+    // the major line color. For example every 10 units
+    pub major_line_color: Color,
 }
 
 impl Plugin for GridPlanePlugin {
@@ -41,8 +41,8 @@ impl Plugin for GridPlanePlugin {
             x_axis_color: self.x_axis_color,
             y_axis_color: self.y_axis_color,
             z_axis_color: self.z_axis_color,
-            color: self.color,
-            color10: self.color10,
+            minor_line_color: self.minor_line_color,
+            major_line_color: self.major_line_color,
         };
 
         app.insert_resource(state).add_startup_system(setup);
@@ -57,8 +57,8 @@ struct GridOptions {
     x_axis_color: Color,
     y_axis_color: Color,
     z_axis_color: Color,
-    color: Color,
-    color10: Color,
+    minor_line_color: Color,
+    major_line_color: Color,
 }
 
 impl Default for GridPlanePlugin {
@@ -70,8 +70,8 @@ impl Default for GridPlanePlugin {
             x_axis_color: Color::hsla(0.0, 1.0, 0.45, 1.0),
             y_axis_color: Color::hsla(137.0, 1.0, 0.45, 1.0),
             z_axis_color: Color::hsla(213.0, 1.0, 0.45, 1.0),
-            color: Color::Rgba { red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0 },
-            color10: Color::Rgba { red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0 },
+            minor_line_color: Color::Rgba { red: 0.05, green: 0.05, blue: 0.05, alpha: 1.0 },
+            major_line_color: Color::Rgba { red: 0.2, green: 0.2, blue: 0.2, alpha: 1.0 },
         }
     }
 }
@@ -89,8 +89,8 @@ fn setup(
         state.x_axis_color,
         state.y_axis_color,
         state.z_axis_color,
-        state.color,
-        state.color10,
+        state.minor_line_color,
+        state.major_line_color,
     );
     
     let line_material = materials.add(StandardMaterial {
@@ -114,7 +114,7 @@ fn setup(
 fn create_grid_mesh(
     size: i32, spacing: f32, grid_axis: GridAxis, 
     x_color: Color, y_color: Color, z_color: Color, 
-    color: Color, color10: Color,
+    minor_line_color: Color, major_line_color: Color,
 ) -> Mesh {
     
     let mut mesh = Mesh::new(PrimitiveTopology::LineList);
@@ -131,13 +131,13 @@ fn create_grid_mesh(
 
         // line color on the axis
         let mut color = match grid_axis {
-            GridAxis::Xy => if y == size / 2 { x_color } else { color }, // ok
-            GridAxis::Yz => if y == size / 2 { z_color } else { color },
-            GridAxis::Zx => if y == size / 2 { x_color } else { color }, // ok
+            GridAxis::Xy => if y == size / 2 { x_color } else { minor_line_color },
+            GridAxis::Yz => if y == size / 2 { z_color } else { minor_line_color },
+            GridAxis::Zx => if y == size / 2 { x_color } else { minor_line_color },
         };
 
         // Line color every 10 units
-        if y != size / 2 && y % 10 == 0 { color = color10; }
+        if y != size / 2 && y % 10 == 0 { color = major_line_color; }
         
         vertices.push(start.into());
         vertices.push(end.into());
@@ -154,13 +154,13 @@ fn create_grid_mesh(
 
         // line color on the axis
         let mut color = match grid_axis {
-            GridAxis::Xy => if x == size / 2 { y_color } else { color }, // ok
-            GridAxis::Yz => if x == size / 2 { y_color } else { color },
-            GridAxis::Zx => if x == size / 2 { z_color } else { color }, // ok
+            GridAxis::Xy => if x == size / 2 { y_color } else { minor_line_color },
+            GridAxis::Yz => if x == size / 2 { y_color } else { minor_line_color },
+            GridAxis::Zx => if x == size / 2 { z_color } else { minor_line_color },
         };
 
         // Line color every 10 units
-        if x != size / 2 && x % 10 == 0 { color = color10; }
+        if x != size / 2 && x % 10 == 0 { color = major_line_color; }
 
         vertices.push(start.into());
         vertices.push(end.into());
