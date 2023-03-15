@@ -54,11 +54,10 @@ fn main() {
 
 ## Examples
 The Grid Plugin comes with three example scenes to get you started:
-- examples/grid_plane_default.rs
-- examples/grid_plane_with_options.rs
-- examples/grid_plane_with_some_options.rs
+- `cargo run --example grid_plane_default`
+- `cargo run --example grid_plane_with_options`
+- `cargo run --example grid_plane_with_some_options`
 
-To run an example, simply navigate to the example directory and run cargo run:
 
 
 ## Compatible Bevy versions
